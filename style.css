@@ -1,6 +1,7 @@
 /* =========================================================
    Sleek Education & Experience Layout
    ========================================================= */
+
 .timeline-container {
   display: flex;
   flex-direction: column;
@@ -12,14 +13,27 @@
   border-radius: 12px;
 }
 
+/* Timeline Header */
 .timeline-header {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
+/* Direct icon constraint to override full-width image rendering */
+.edu-icon-small {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Institution Logo Wrapper */
 .inst-logo-wrapper {
   width: 42px;
   height: 42px;
@@ -34,6 +48,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
+/* Institution Logo */
 .inst-logo {
   max-width: 100%;
   max-height: 100%;
@@ -43,22 +58,25 @@
   display: block;
 }
 
+/* Timeline Title Group */
 .timeline-title-group {
   flex: 1;
   min-width: 220px;
 }
 
 .timeline-title-group h3 {
+  margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 0 0 2px 0;
 }
 
 .timeline-sub {
+  margin: 2px 0 0 0;
   font-size: 0.88rem;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
+/* Timeline Date Badge */
 .timeline-date-badge {
   font-size: 0.78rem;
   font-weight: 600;
@@ -70,15 +88,18 @@
   white-space: nowrap;
 }
 
+/* Timeline Description */
 .timeline-desc {
   font-size: 0.92rem;
   line-height: 1.6;
   margin: 0;
 }
 
+
 /* =========================================================
    Professional Affiliations Layout
    ========================================================= */
+
 .affil-card {
   display: flex;
   flex-direction: column;
