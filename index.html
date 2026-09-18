@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md Tahrim Kobir Riyad - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Md Tahrim Kobir Riyad — Portfolio</title>
+  <meta name="description" content="Portfolio of Md Tahrim Kobir Riyad, B.Sc. Agriculture (Hons.) student and research assistant at Sylhet Agricultural University, working in plant stress physiology, molecular biology, and bioinformatics.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Sticky Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-brand"><span>Md Tahrim</span> Kobir Riyad</a>
-      <ul class="nav-links">
+      <a href="#hero" class="nav-brand">Tahrim <em>Riyad</em></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#hero">Home</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#conferences">Conferences</a></li>
@@ -25,172 +31,193 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="hero" class="hero-section">
     <div class="container hero-grid">
       <div class="hero-text">
-        <div class="institution-badge">
-          <span>Sylhet Agricultural University</span>
-        </div>
+        <span class="institution-badge">Sylhet Agricultural University</span>
         <h1>Md Tahrim Kobir<br><em>Riyad</em></h1>
-        <div class="subtitle">B.Sc. Agriculture (Hons.) Student & Research Assistant</div>
-        <p class="bio">Third-year B.Sc. in Agriculture (Hons.) student from Sylhet Agricultural University with a research background in Plant Stress Physiology, Molecular Biology, and Bioinformatics[cite: 1]. Working towards functional genomics, crop stress resilience, and climate-smart agriculture at multidisciplinary and international platforms[cite: 1].</p>
-        
-        <div class="stats-grid">
-          <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Certifications</div></div>
-          <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Memberships</div></div>
-          <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">Conference</div></div>
+        <p class="subtitle">B.Sc. Agriculture (Hons.) Student &amp; Research Assistant</p>
+        <p class="bio">Third-year B.Sc. in Agriculture (Hons.) student at Sylhet Agricultural University, with a research background in plant stress physiology, molecular biology, and bioinformatics. Working toward functional genomics, crop stress resilience, and climate-smart agriculture across multidisciplinary and international platforms.</p>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-num">6</span><span class="stat-label">Certifications</span></div>
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">Memberships</span></div>
+          <div class="stat"><span class="stat-num">1</span><span class="stat-label">Conference</span></div>
         </div>
       </div>
       <div class="hero-image">
+        <svg class="hero-blob" viewBox="0 0 600 600" aria-hidden="true">
+          <path d="M421.5,320Q409,390,350,430Q291,470,220,455Q149,440,110,380Q71,320,90,250Q109,180,170,140Q231,100,300,110Q369,120,410,175Q451,230,421.5,320Z"/>
+        </svg>
         <img src="1000440301.jpg" alt="Md Tahrim Kobir Riyad" class="profile-img">
       </div>
     </div>
   </section>
 
-  <!-- Research Section -->
+  <!-- Research -->
   <section id="research" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Focus Areas</span>
-        <h2>Research Interests</h2>
+        <span class="eyebrow">Focus areas</span>
+        <h2>Research interests</h2>
       </div>
       <div class="cards-grid">
         <div class="card">
           <div class="card-icon">🌱</div>
           <h3>Plant Stress Physiology</h3>
-          <p>Designing and conducting seed germination and abiotic stress resilience experiments[cite: 1].</p>
+          <p>Designing and conducting seed germination and abiotic stress resilience experiments.</p>
         </div>
         <div class="card">
           <div class="card-icon">🧬</div>
           <h3>Molecular Biology</h3>
-          <p>DNA extraction and biochemical assays for antioxidant enzymes (SOD, POD, CAT, APX) and stress markers (MDA, Chlorophyll)[cite: 1].</p>
+          <p>DNA extraction and biochemical assays for antioxidant enzymes (SOD, POD, CAT, APX) and stress markers (MDA, chlorophyll).</p>
         </div>
         <div class="card">
           <div class="card-icon">💻</div>
-          <h3>Bioinformatics & Genomics</h3>
-          <p>Genome-wide identification, gene expression profiling, functional analysis (GO/KEGG annotation), and structural predictions using computational tools[cite: 1].</p>
+          <h3>Bioinformatics &amp; Genomics</h3>
+          <p>Genome-wide identification, gene expression profiling, functional annotation (GO/KEGG), and structural predictions using computational tools.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Conferences & Certifications Section -->
+  <!-- Conferences & Certifications -->
   <section id="conferences" class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Scholarly Output</span>
-        <h2>Conferences & Certifications</h2>
+        <span class="eyebrow">Scholarly output</span>
+        <h2>Conferences &amp; certifications</h2>
       </div>
-      <div class="pub-list">
-        <div class="pub-card">
-          <span class="pub-status">● Oral Presentation · May 2026</span>
-          <h3 class="pub-title">Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels[cite: 1]</h3>
-          <p class="pub-authors"><strong>Md Tahrim Kobir Riyad</strong></p>
-          <p class="pub-journal">International Antalya Scientific Research and Innovative Studies Congress-X, Antalya- Türkiye[cite: 1]</p>
-        </div>
+
+      <div class="highlight-card">
+        <span class="status-tag">Oral presentation · May 2026</span>
+        <h3>Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels</h3>
+        <p class="pub-authors">Md Tahrim Kobir Riyad</p>
+        <p class="pub-venue">International Antalya Scientific Research and Innovative Studies Congress-X, Antalya, Türkiye</p>
       </div>
-      
-      <h3 style="margin-top: 40px; margin-bottom: 20px;">Professional Certifications</h3>
-      <div class="cards-grid">
-        <div class="card">
-          <h4>Bioinformatics & Genomics</h4>
-          <p>Plant Bioinformatics Methods (University of Toronto)[cite: 1]<br>Bioinformatics: Introduction and Methods (Peking University)[cite: 1]</p>
+
+      <div class="cert-groups">
+        <div class="cert-group">
+          <h4>Bioinformatics &amp; Genomics</h4>
+          <ul class="cert-list">
+            <li><span class="cert-name">Plant Bioinformatics Methods</span><span class="cert-org">University of Toronto</span></li>
+            <li><span class="cert-name">Bioinformatics: Introduction and Methods</span><span class="cert-org">Peking University</span></li>
+          </ul>
         </div>
-        <div class="card">
-          <h4>Data Science & Programming</h4>
-          <p>Python for Genomic Data Science (Johns Hopkins University)[cite: 1]<br>Applied Machine Learning in Python (University of Michigan)[cite: 1]<br>Data Analysis with R (Duke University)[cite: 1]</p>
+        <div class="cert-group">
+          <h4>Data Science &amp; Programming</h4>
+          <ul class="cert-list">
+            <li><span class="cert-name">Python for Genomic Data Science</span><span class="cert-org">Johns Hopkins University</span></li>
+            <li><span class="cert-name">Applied Machine Learning in Python</span><span class="cert-org">University of Michigan</span></li>
+            <li><span class="cert-name">Data Analysis with R</span><span class="cert-org">Duke University</span></li>
+          </ul>
         </div>
-        <div class="card">
-          <h4>Ethics & Law</h4>
-          <p>Law and Genetics (University of Cambridge)[cite: 1]</p>
+        <div class="cert-group">
+          <h4>Ethics &amp; Law</h4>
+          <ul class="cert-list">
+            <li><span class="cert-name">Law and Genetics</span><span class="cert-org">University of Cambridge</span></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Education Section -->
+  <!-- Education -->
   <section id="education" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Academic Path</span>
-        <h2>Education & Experience</h2>
+        <span class="eyebrow">Academic path</span>
+        <h2>Education &amp; experience</h2>
       </div>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">May 2026 — Present</div>
-          <h3>Research Assistant (Genetics Lab)</h3>
-          <p class="timeline-sub">Sylhet Agricultural University[cite: 1]</p>
-          <p>Conducting gene family analysis, functional analysis, and using tools like NCBI, TAIR, Phytozome, and AlphaFold[cite: 1].</p>
+          <div class="timeline-date">May 2026 – Present</div>
+          <h3>Research Assistant, Genetics Lab</h3>
+          <p class="timeline-sub">Sylhet Agricultural University</p>
+          <p>Conducting gene family analysis and functional annotation using tools including NCBI, TAIR, Phytozome, and AlphaFold.</p>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">Feb 2025 — Present</div>
-          <h3>Research Assistant (Agronomy Lab)</h3>
-          <p class="timeline-sub">Sylhet Agricultural University[cite: 1]</p>
-          <p>Executing molecular & biochemical techniques, instrumentation operation, and stress physiology experiments[cite: 1].</p>
+          <div class="timeline-date">Feb 2025 – Present</div>
+          <h3>Research Assistant, Agronomy Lab</h3>
+          <p class="timeline-sub">Sylhet Agricultural University</p>
+          <p>Running molecular and biochemical techniques, instrument operation, and stress physiology experiments.</p>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">Oct 2023 — Present</div>
+          <div class="timeline-date">Oct 2023 – Present</div>
           <h3>B.Sc. in Agriculture (Hons.)</h3>
-          <p class="timeline-sub">Sylhet Agricultural University, Bangladesh[cite: 1]</p>
-          <p>Studying Plant Physiology, Crop Science, Genetics & Plant Breeding, and Agricultural Statistics[cite: 1].</p>
+          <p class="timeline-sub">Sylhet Agricultural University, Bangladesh</p>
+          <p>Studying plant physiology, crop science, genetics &amp; plant breeding, and agricultural statistics.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section id="skills" class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Expertise</span>
-        <h2>Skills & Tools</h2>
+        <span class="eyebrow">Expertise</span>
+        <h2>Skills &amp; tools</h2>
       </div>
       <div class="skills-grid">
         <div class="skill-group">
-          <h3>Laboratory & Analytical</h3>
+          <h3>Laboratory &amp; analytical</h3>
           <div class="tags">
-            <span class="tag">DNA Extraction[cite: 1]</span>
-            <span class="tag">UV–Vis Spectrophotometer[cite: 1]</span>
-            <span class="tag">Biochemical Assays[cite: 1]</span>
-            <span class="tag">Seed Germination[cite: 1]</span>
+            <span class="tag">DNA extraction</span>
+            <span class="tag">UV–Vis spectrophotometry</span>
+            <span class="tag">Biochemical assays</span>
+            <span class="tag">Seed germination</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3>Bioinformatics & Computing</h3>
+          <h3>Bioinformatics &amp; computing</h3>
           <div class="tags">
-            <span class="tag">R & Python[cite: 1]</span>
-            <span class="tag">NCBI / BLAST[cite: 1]</span>
-            <span class="tag">MEGA / PhyloSuite[cite: 1]</span>
-            <span class="tag">TBtools / MEME[cite: 1]</span>
-            <span class="tag">AlphaFold[cite: 1]</span>
+            <span class="tag">R &amp; Python</span>
+            <span class="tag">NCBI / BLAST</span>
+            <span class="tag">MEGA / PhyloSuite</span>
+            <span class="tag">TBtools / MEME</span>
+            <span class="tag">AlphaFold</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3>Professional Affiliations</h3>
+          <h3>Professional affiliations</h3>
           <div class="tags">
-            <span class="tag">American Society of Plant Biologists[cite: 1]</span>
-            <span class="tag">American Phytopathological Society[cite: 1]</span>
-            <span class="tag">American Society of Horticultural Science[cite: 1]</span>
+            <span class="tag tag-outline">American Society of Plant Biologists</span>
+            <span class="tag tag-outline">American Phytopathological Society</span>
+            <span class="tag tag-outline">American Society of Horticultural Science</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Get in Touch</span>
+        <span class="eyebrow">Get in touch</span>
         <h2>Contact</h2>
       </div>
       <div class="contact-grid">
-        <div class="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:tahrim.ag@student.sau.ac.bd">tahrim.ag@student.sau.ac.bd[cite: 1]</a></p>
-          <p><strong>Phone / WhatsApp:</strong> +8801305581682[cite: 1]</p>
-          <p><strong>LinkedIn:</strong> <a href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank">linkedin.com/in/mdtahrimkobirriyad[cite: 1]</a></p>
-          <p><strong>Affiliation:</strong> Sylhet Agricultural University, Bangladesh[cite: 1]</p>
+        <a class="contact-row" href="mailto:tahrim.ag@student.sau.ac.bd">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">tahrim.ag@student.sau.ac.bd</span>
+        </a>
+        <a class="contact-row" href="tel:+8801305581682">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+880 1305 581682</span>
+        </a>
+        <a class="contact-row" href="https://wa.me/8801305581682" target="_blank" rel="noopener">
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">Message on WhatsApp</span>
+        </a>
+        <a class="contact-row" href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/mdtahrimkobirriyad</span>
+        </a>
+        <div class="contact-row contact-row-static">
+          <span class="contact-label">Affiliation</span>
+          <span class="contact-value">Sylhet Agricultural University, Bangladesh</span>
         </div>
       </div>
     </div>
@@ -199,9 +226,34 @@
   <!-- Footer -->
   <footer>
     <div class="container footer-content">
-      <p>© 2026 Md Tahrim Kobir Riyad · All Rights Reserved</p>
+      <p>© 2026 Md Tahrim Kobir Riyad</p>
+      <div class="footer-links">
+        <a href="mailto:tahrim.ag@student.sau.ac.bd" aria-label="Email">✉</a>
+        <a href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="#hero" aria-label="Back to top">↑</a>
+      </div>
     </div>
   </footer>
 
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
