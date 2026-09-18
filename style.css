@@ -35,7 +35,7 @@ img { max-width: 100%; display: block; }
 /* ---------- Layout helpers ---------- */
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 100px 0; }
-.section-alt { background: var(--bg-color); } /* Kept consistent with clean style */
+.section-alt { background: var(--bg-color); }
 
 /* Eyebrow & Headers */
 .section-header { text-align: center; margin-bottom: 56px; }
@@ -172,14 +172,14 @@ img { max-width: 100%; display: block; }
 .view-link { color: var(--primary-green); font-size: 0.9rem; font-weight: 500; }
 .view-link:hover { text-decoration: underline; }
 
-/* Certifications */
+/* ---------- Certifications Styling ---------- */
 .cert-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-.cert-group h4 { font-family: 'Inter', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 16px; }
+.cert-group h4 { font-family: 'Inter', sans-serif; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary-green); font-weight: 700; margin-bottom: 16px; }
 .cert-list { display: flex; flex-direction: column; gap: 16px; }
-.cert-list a { display: block; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; transition: border-color 0.2s; }
-.cert-list a:hover { border-color: var(--primary-green); }
-.cert-name { display: block; font-weight: 600; color: var(--text-heading); font-size: 0.95rem; }
-.cert-org { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+.cert-list a { display: block; padding: 18px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; transition: all 0.2s ease; }
+.cert-list a:hover { border-color: var(--primary-green); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); }
+.cert-name { display: block; font-weight: 600; color: var(--text-heading); font-size: 0.95rem; line-height: 1.35; }
+.cert-org { display: block; color: #333833; font-size: 0.88rem; font-weight: 500; margin-top: 6px; }
 
 /* ---------- Timeline/Education Cards ---------- */
 .timeline-grid { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; }
