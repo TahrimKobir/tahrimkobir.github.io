@@ -1,263 +1,259 @@
-/* ---------- Reset & base ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--ink);
-  background: var(--paper);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-h1, h2, h3, h4 { font-family: 'Newsreader', serif; font-weight: 600; line-height: 1.25; }
-a { color: inherit; }
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md Tahrim Kobir Riyad — Portfolio</title>
+  <meta name="description" content="Portfolio of Md Tahrim Kobir Riyad, B.Sc. Agriculture (Hons.) student and research assistant at Sylhet Agricultural University, working in plant stress physiology, molecular biology, and bioinformatics.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* ---------- Palette ---------- */
-:root {
-  --canopy: #1E3A2E;      /* deep botanical green — headings, primary */
-  --canopy-deep: #14261D; /* footer background */
-  --leaf: #4F7A5E;        /* mid green — borders, decoration */
-  --leaf-dark: #33553F;   /* text-safe green — subtitle */
-  --leaf-light: #B9CFBB;  /* pale green — hero blob only */
-  --harvest: #9C7226;     /* warm bronze/gold accent */
-  --paper: #F7F5EF;       /* warm background */
-  --surface: #FFFFFF;
-  --surface-alt: #F0EDE0;
-  --ink: #24291F;
-  --ink-muted: #565A48;
-  --border: #E2DFD0;
-}
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">Tahrim <em>Riyad</em></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#conferences">Conferences</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-/* ---------- Layout helpers ---------- */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 96px 0; }
-.section-alt { background: var(--surface-alt); }
-.section-header { text-align: center; margin-bottom: 56px; }
-.eyebrow {
-  display: block;
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  color: var(--harvest);
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-.section-header h2 { font-size: 2rem; color: var(--canopy); }
+  <!-- Hero -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="institution-badge">Sylhet Agricultural University</span>
+        <h1>Md Tahrim Kobir<br><em>Riyad</em></h1>
+        <p class="subtitle">B.Sc. Agriculture (Hons.) Student &amp; Research Assistant</p>
+        <p class="bio">Third-year B.Sc. in Agriculture (Hons.) student at Sylhet Agricultural University, with a research background in plant stress physiology, molecular biology, and bioinformatics. Working toward functional genomics, crop stress resilience, and climate-smart agriculture across multidisciplinary and international platforms.</p>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-num">6</span><span class="stat-label">Certifications</span></div>
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">Memberships</span></div>
+          <div class="stat"><span class="stat-num">1</span><span class="stat-label">Conference</span></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <svg class="hero-blob" viewBox="0 0 600 600" aria-hidden="true">
+          <path d="M421.5,320Q409,390,350,430Q291,470,220,455Q149,440,110,380Q71,320,90,250Q109,180,170,140Q231,100,300,110Q369,120,410,175Q451,230,421.5,320Z"/>
+        </svg>
+        <img src="1000440301.jpg" alt="Md Tahrim Kobir Riyad" class="profile-img">
+      </div>
+    </div>
+  </section>
 
-/* ---------- Navbar ---------- */
-.navbar {
-  position: sticky;
-  top: 0;
-  background: rgba(247, 245, 239, 0.92);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
-  border-bottom: 1px solid var(--border);
-}
-.nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  position: relative;
-}
-.nav-brand { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--canopy); text-decoration: none; }
-.nav-brand em { font-style: italic; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a { text-decoration: none; color: var(--ink); font-weight: 500; font-size: 0.92rem; transition: color 0.2s ease; }
-.nav-links a:hover, .nav-links a:focus-visible { color: var(--canopy); }
+  <!-- Research -->
+  <section id="research" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Focus areas</span>
+        <h2>Research interests</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Plant Stress Physiology</h3>
+          <p>Designing and conducting seed germination and abiotic stress resilience experiments.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧬</div>
+          <h3>Molecular Biology</h3>
+          <p>DNA extraction and biochemical assays for antioxidant enzymes (SOD, POD, CAT, APX) and stress markers (MDA, chlorophyll).</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h3>Bioinformatics &amp; Genomics</h3>
+          <p>Genome-wide identification, gene expression profiling, functional annotation (GO/KEGG), and structural predictions using computational tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
-.nav-toggle span { width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+  <!-- Conferences & Certifications -->
+  <section id="conferences" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Scholarly output</span>
+        <h2>Conferences &amp; certifications</h2>
+      </div>
 
-/* ---------- Hero ---------- */
-.hero-section { padding: 80px 0 60px; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+      <div class="highlight-card">
+        <span class="status-tag">Oral presentation · May 2026</span>
+        <h3>Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels</h3>
+        <p class="pub-authors">Md Tahrim Kobir Riyad</p>
+        <p class="pub-venue">International Antalya Scientific Research and Innovative Studies Congress-X, Antalya, Türkiye</p>
+      </div>
 
-.institution-badge {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink-muted);
-  letter-spacing: 0.2px;
-  margin-bottom: 18px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--harvest);
-}
-.hero-text h1 { font-size: clamp(2.3rem, 5vw, 3.3rem); color: var(--canopy); margin-bottom: 14px; }
-.hero-text h1 em { font-style: italic; font-weight: 500; }
-.subtitle { font-size: 1.15rem; color: var(--leaf-dark); font-weight: 500; margin-bottom: 20px; }
-.bio { font-size: 1.05rem; color: var(--ink-muted); max-width: 54ch; margin-bottom: 32px; }
+      <div class="cert-groups">
+        <div class="cert-group">
+          <h4>Bioinformatics &amp; Genomics</h4>
+          <ul class="cert-list">
+            <li><span class="cert-name">Plant Bioinformatics Methods</span><span class="cert-org">University of Toronto</span></li>
+            <li><span class="cert-name">Bioinformatics: Introduction and Methods</span><span class="cert-org">Peking University</span></li>
+          </ul>
+        </div>
+        <div class="cert-group">
+          <h4>Data Science &amp; Programming</h4>
+          <ul class="cert-list">
+            <li><span class="cert-name">Python for Genomic Data Science</span><span class="cert-org">Johns Hopkins University</span></li>
+            <li><span class="cert-name">Applied Machine Learning in Python</span><span class="cert-org">University of Michigan</span></li>
+            <li><span class="cert-name">Data Analysis with R</span><span class="cert-org">Duke University</span></li>
+          </ul>
+        </div>
+        <div class="cert-group">
+          <h4>Ethics &amp; Law</h4>
+          <ul class="cert-list">
+            <li><span class="cert-name">Law and Genetics</span><span class="cert-org">University of Cambridge</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.stats-row { display: flex; margin-top: 8px; padding-top: 24px; border-top: 1px solid var(--border); }
-.stat { display: flex; flex-direction: column; padding: 0 24px; }
-.stat:first-child { padding-left: 0; }
-.stat + .stat { border-left: 1px solid var(--border); }
-.stat-num { font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--canopy); line-height: 1; }
-.stat-label { font-size: 0.78rem; color: var(--ink-muted); margin-top: 6px; }
+  <!-- Education -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Academic path</span>
+        <h2>Education &amp; experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">May 2026 – Present</div>
+          <h3>Research Assistant, Genetics Lab</h3>
+          <p class="timeline-sub">Sylhet Agricultural University</p>
+          <p>Conducting gene family analysis and functional annotation using tools including NCBI, TAIR, Phytozome, and AlphaFold.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Feb 2025 – Present</div>
+          <h3>Research Assistant, Agronomy Lab</h3>
+          <p class="timeline-sub">Sylhet Agricultural University</p>
+          <p>Running molecular and biochemical techniques, instrument operation, and stress physiology experiments.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Oct 2023 – Present</div>
+          <h3>B.Sc. in Agriculture (Hons.)</h3>
+          <p class="timeline-sub">Sylhet Agricultural University, Bangladesh</p>
+          <p>Studying plant physiology, crop science, genetics &amp; plant breeding, and agricultural statistics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.hero-image { position: relative; display: flex; justify-content: center; }
-.hero-blob { position: absolute; width: 120%; top: -10%; left: -14%; z-index: 0; }
-.hero-blob path { fill: var(--leaf-light); opacity: 0.6; }
-.profile-img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px -14px rgba(30, 58, 46, 0.35);
-}
+  <!-- Skills -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Expertise</span>
+        <h2>Skills &amp; tools</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Laboratory &amp; analytical</h3>
+          <div class="tags">
+            <span class="tag">DNA extraction</span>
+            <span class="tag">UV–Vis spectrophotometry</span>
+            <span class="tag">Biochemical assays</span>
+            <span class="tag">Seed germination</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Bioinformatics &amp; computing</h3>
+          <div class="tags">
+            <span class="tag">R &amp; Python</span>
+            <span class="tag">NCBI / BLAST</span>
+            <span class="tag">MEGA / PhyloSuite</span>
+            <span class="tag">TBtools / MEME</span>
+            <span class="tag">AlphaFold</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Professional affiliations</h3>
+          <div class="tags">
+            <span class="tag tag-outline">American Society of Plant Biologists</span>
+            <span class="tag tag-outline">American Phytopathological Society</span>
+            <span class="tag tag-outline">American Society of Horticultural Science</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* Hero entrance — one orchestrated moment, respects reduced motion */
-@media (prefers-reduced-motion: no-preference) {
-  .hero-text > * { opacity: 0; animation: rise 0.7s ease forwards; }
-  .institution-badge { animation-delay: 0.05s; }
-  .hero-text h1 { animation-delay: 0.15s; }
-  .hero-text .subtitle { animation-delay: 0.25s; }
-  .hero-text .bio { animation-delay: 0.35s; }
-  .hero-text .stats-row { animation-delay: 0.45s; }
-  .hero-image { opacity: 0; animation: rise 0.9s ease forwards; animation-delay: 0.2s; }
-}
-@keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-row" href="mailto:tahrim.ag@student.sau.ac.bd">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">tahrim.ag@student.sau.ac.bd</span>
+        </a>
+        <a class="contact-row" href="tel:+8801305581682">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+880 1305 581682</span>
+        </a>
+        <a class="contact-row" href="https://wa.me/8801305581682" target="_blank" rel="noopener">
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">Message on WhatsApp</span>
+        </a>
+        <a class="contact-row" href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/mdtahrimkobirriyad</span>
+        </a>
+        <div class="contact-row contact-row-static">
+          <span class="contact-label">Affiliation</span>
+          <span class="contact-value">Sylhet Agricultural University, Bangladesh</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* ---------- Research cards ---------- */
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--leaf);
-  border-radius: 8px;
-  padding: 28px 24px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-.card:hover { transform: translateY(-3px); border-color: var(--leaf); }
-.card-icon { font-size: 1.7rem; margin-bottom: 12px; }
-.card h3 { font-size: 1.15rem; color: var(--canopy); margin-bottom: 8px; }
-.card p { color: var(--ink-muted); font-size: 0.95rem; }
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Md Tahrim Kobir Riyad</p>
+      <div class="footer-links">
+        <a href="mailto:tahrim.ag@student.sau.ac.bd" aria-label="Email">✉</a>
+        <a href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="#hero" aria-label="Back to top">↑</a>
+      </div>
+    </div>
+  </footer>
 
-/* ---------- Conference highlight + certifications ---------- */
-.highlight-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--harvest);
-  border-radius: 8px;
-  padding: 28px;
-  margin-bottom: 44px;
-}
-.status-tag {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--harvest);
-  background: rgba(156, 114, 38, 0.1);
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
-.highlight-card h3 { font-size: 1.2rem; color: var(--canopy); margin-bottom: 10px; line-height: 1.4; }
-.pub-authors { font-weight: 600; margin-bottom: 2px; }
-.pub-venue { color: var(--ink-muted); font-size: 0.92rem; }
-
-.cert-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
-.cert-group h4 { font-size: 1rem; color: var(--canopy); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-.cert-list { display: flex; flex-direction: column; gap: 12px; }
-.cert-name { display: block; font-weight: 500; color: var(--ink); font-size: 0.95rem; }
-.cert-org { display: block; color: var(--ink-muted); font-size: 0.85rem; margin-top: 1px; }
-
-/* ---------- Timeline ---------- */
-.timeline { border-left: 2px solid var(--border); margin-left: 8px; padding-left: 28px; }
-.timeline-item { position: relative; margin-bottom: 36px; }
-.timeline-item:last-child { margin-bottom: 0; }
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -33px;
-  top: 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--harvest);
-  border: 2px solid var(--paper);
-}
-.timeline-date { font-size: 0.82rem; font-weight: 600; color: var(--harvest); margin-bottom: 4px; }
-.timeline-item h3 { font-size: 1.1rem; color: var(--canopy); margin-bottom: 2px; }
-.timeline-sub { font-weight: 500; font-size: 0.9rem; color: var(--ink-muted); margin-bottom: 8px; }
-
-/* ---------- Skills ---------- */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px; }
-.skill-group h3 { font-size: 1.05rem; color: var(--canopy); margin-bottom: 14px; }
-.tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.tag {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-}
-.tag-outline { background: transparent; border: 1px solid var(--leaf); color: var(--leaf-dark); }
-
-/* ---------- Contact ---------- */
-.contact-grid { display: flex; flex-direction: column; max-width: 520px; margin: 0 auto; border-top: 1px solid var(--border); }
-.contact-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 4px;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--ink);
-  transition: padding-left 0.2s ease, color 0.2s ease;
-}
-.contact-row:hover, .contact-row:focus-visible { padding-left: 8px; color: var(--canopy); }
-.contact-row-static:hover { padding-left: 4px; color: var(--ink); cursor: default; }
-.contact-label { font-size: 0.85rem; color: var(--ink-muted); font-weight: 500; white-space: nowrap; }
-.contact-value { font-weight: 500; text-align: right; }
-
-/* ---------- Footer ---------- */
-footer { background: var(--canopy-deep); color: #EDECE3; text-align: center; padding: 36px 0; }
-.footer-content { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.footer-links { display: flex; gap: 22px; }
-.footer-links a { color: #EDECE3; text-decoration: none; font-size: 1.15rem; opacity: 0.85; transition: opacity 0.2s ease; }
-.footer-links a:hover, .footer-links a:focus-visible { opacity: 1; }
-
-/* ---------- Accessibility ---------- */
-a:focus-visible, button:focus-visible { outline: 2px solid var(--harvest); outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) {
-  .hero-text > *, .hero-image { animation: none !important; opacity: 1 !important; transform: none !important; }
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 768px) {
-  .nav-toggle { display: flex; }
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--paper);
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-    transition: max-height 0.3s ease;
-  }
-  .nav-links.open { max-height: 320px; }
-  .nav-links li { width: 100%; }
-  .nav-links a { display: block; padding: 14px 24px; border-top: 1px solid var(--border); }
-
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-image { order: -1; max-width: 260px; margin: 0 auto 32px; }
-  .stats-row { justify-content: center; }
-  .bio { margin-left: auto; margin-right: auto; }
-
-  .section { padding: 64px 0; }
-  .section-header h2 { font-size: 1.6rem; }
-  .contact-row { flex-wrap: wrap; }
-}
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</body>
+</html>
