@@ -80,7 +80,7 @@ img { max-width: 100%; display: block; }
   padding: 16px 24px;
 }
 .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: #00555A; }
-.nav-brand em { font-style: italic; color: #000000; }
+.nav-brand em { font-style: normal; color: #000000; }
 
 .nav-links { display: flex; gap: 32px; }
 .nav-links a { 
