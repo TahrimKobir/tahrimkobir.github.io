@@ -367,7 +367,7 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
      <span class="line"><span>Laila Arafat</span></span>
      <span class="line"><span><em>Sathi</em></span></span>
    </h1>  */
-.hero-text h1 { font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 12px; }
+.hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 12px; }
 .hero-text h1 .line {
   display: block;
   overflow: hidden;
