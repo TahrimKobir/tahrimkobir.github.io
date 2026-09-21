@@ -309,63 +309,89 @@
     </div>
   </section>
 
-
- <!-- Photo Gallery / Carousel -->
+<!-- Photo Section 
 <!-- Photo Gallery / Carousel -->
 <section id="gallery" class="section section-alt">
   <div class="container">
-    
+
     <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-      <!-- Styled to look like a system readout -->
       <span class="eyebrow" style="color: #00f3ff; font-family: monospace; letter-spacing: 2px;">[ SYS.STATUS: IN ACTION ]</span>
       <h2 style="text-transform: uppercase; letter-spacing: 1px;">Field &amp; Laboratory Work</h2>
     </div>
 
     <div class="carousel-container" style="position: relative;">
-      
+
       <!-- Prev Button -->
-      <button class="carousel-btn prev-btn" aria-label="Previous image" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 20;">&#10094;</button>
-      
+      <button class="carousel-btn prev-btn" aria-label="Previous image" style="position: absolute; left: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10094;</button>
+
       <div class="carousel-track">
-        
+
+        <!-- SLIDE 1 -->
         <div class="carousel-slide">
-          <img src="rice.png" alt="Rice project data collection" loading="lazy">
+          <div class="image-wrapper" onclick="openModal(this)">
+            <img src="rice.png" alt="Rice project data collection" loading="lazy">
+          </div>
           <div class="carousel-caption">Collecting agronomic data for the rice research project</div>
         </div>
-        
+
+        <!-- SLIDE 2 -->
         <div class="carousel-slide">
-          <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
+          <div class="image-wrapper" onclick="openModal(this)">
+            <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
+          </div>
           <div class="carousel-caption">Preparing biochemical assays by adding buffer solution</div>
         </div>
 
+        <!-- SLIDE 3 -->
         <div class="carousel-slide">
-          <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
+          <div class="image-wrapper" onclick="openModal(this)">
+            <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
+          </div>
           <div class="carousel-caption">Grinding plant tissue samples with liquid nitrogen for molecular analysis</div>
         </div>
-        
+          
+        <!-- SLIDE 4 -->
         <div class="carousel-slide">
-          <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
+          <div class="image-wrapper" onclick="openModal(this)">
+            <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
+          </div>
           <div class="carousel-caption">Centrifuging plant samples for enzyme extraction</div>
         </div>
-        
+
+        <!-- SLIDE 5 -->
         <div class="carousel-slide">
-          <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
+          <div class="image-wrapper" onclick="openModal(this)">
+            <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
+          </div>
           <div class="carousel-caption">Recording physiological growth data from chili plants</div>
         </div>
-        
+
+        <!-- SLIDE 6 (Reference image_53dc19.jpg) -->
         <div class="carousel-slide">
-          <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
+          <div class="image-wrapper" onclick="openModal(this)">
+            <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
+          </div>
           <div class="carousel-caption">Measuring non-destructive chlorophyll content on chili leaves</div>
         </div>
 
       </div>
 
       <!-- Next Button -->
-      <button class="carousel-btn next-btn" aria-label="Next image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 20;">&#10095;</button>
-      
+      <button class="carousel-btn next-btn" aria-label="Next image" style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10095;</button>
+
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX MODAL (Place this right before your closing </body> tag) -->
+<div id="image-modal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="full-image">
+  <div id="modal-caption-text"></div>
+</div>
+
+
+      
   
       
       <!-- Skills -->
