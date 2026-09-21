@@ -1029,10 +1029,8 @@ footer {
 
 /* This guarantees the whole image fits without cropping */
 .carousel-slide img {
-  max-width: 100%;
-  max-height: 100%; 
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%; 
   object-fit: contain; 
   display: block;
 }
