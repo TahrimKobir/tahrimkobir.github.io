@@ -1011,28 +1011,36 @@ footer {
 
 
 
-
 /* =========================================================
    14. GALLERY / CAROUSEL (Futuristic / Sci-Fi HUD Style)
-   Styles for the high-tech photo gallery and image overlays
    ========================================================= */
 
-/* The main slide container acting as a holographic display */
+/* Slide Container */
 .carousel-slide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between photo and caption */
+}
+
+/* The new image wrapper acting as a holographic display */
+.image-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9; 
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* High-tech dark glass background with a subtle data grid */
+  cursor: pointer; /* Shows the user they can click it */
+
+  /* High-tech dark glass background */
   background: linear-gradient(135deg, rgba(10, 14, 23, 0.95), rgba(4, 7, 13, 0.95));
   background-image: 
     linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
   background-size: 30px 30px;
-  
+
   border-radius: 8px;
   border: 1px solid rgba(0, 243, 255, 0.15);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 243, 255, 0.05);
@@ -1041,8 +1049,8 @@ footer {
 }
 
 /* Futuristic HUD Corner Accents */
-.carousel-slide::before,
-.carousel-slide::after {
+.image-wrapper::before,
+.image-wrapper::after {
   content: '';
   position: absolute;
   width: 40px;
@@ -1053,7 +1061,7 @@ footer {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.carousel-slide::before {
+.image-wrapper::before {
   top: 15px;
   left: 15px;
   border-right: none;
@@ -1061,7 +1069,7 @@ footer {
   box-shadow: -5px -5px 15px rgba(0, 243, 255, 0.2);
 }
 
-.carousel-slide::after {
+.image-wrapper::after {
   bottom: 15px;
   right: 15px;
   border-left: none;
@@ -1069,62 +1077,51 @@ footer {
   box-shadow: 5px 5px 15px rgba(0, 243, 255, 0.2);
 }
 
-/* Hover effect expands the HUD corners */
-.carousel-slide:hover::before {
+.image-wrapper:hover::before {
   top: 10px; left: 10px;
   width: 50px; height: 50px;
   box-shadow: -5px -5px 20px rgba(0, 243, 255, 0.6);
 }
-.carousel-slide:hover::after {
+.image-wrapper:hover::after {
   bottom: 10px; right: 10px;
   width: 50px; height: 50px;
   box-shadow: 5px 5px 20px rgba(0, 243, 255, 0.6);
 }
 
-/* The Image: Floats like a hologram */
-.carousel-slide img {
+/* The Image: Wider view with less padding */
+.image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 40px; /* Space for HUD accents */
+  object-fit: contain; 
+  padding: 10px; /* Reduced padding to make the image much wider/larger */
   box-sizing: border-box;
   filter: drop-shadow(0 10px 20px rgba(0, 243, 255, 0.15));
   transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1), filter 0.5s ease;
 }
 
-.carousel-slide:hover img {
-  transform: scale(1.03);
+.image-wrapper:hover img {
+  transform: scale(1.02);
   filter: drop-shadow(0 15px 30px rgba(0, 243, 255, 0.35)) contrast(1.1);
 }
 
-/* Technical Readout Caption */
+/* Technical Readout Caption (Now sits BELOW the image) */
 .carousel-caption {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative; /* Removed absolute positioning */
   width: auto;
   max-width: 85%;
-  
-  /* Sleek cyber-panel look */
   background: rgba(2, 6, 14, 0.85); 
   color: #e0ffff;
   padding: 12px 28px;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace; /* Technical font */
+  font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  
-  /* Sharp UI edges instead of pills */
   border-radius: 4px; 
   border-left: 3px solid #00f3ff;
   border-right: 3px solid #00f3ff;
   box-shadow: 0 8px 32px rgba(0, 243, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 10;
   overflow: hidden;
 }
 
@@ -1132,10 +1129,8 @@ footer {
 .carousel-caption::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%;
-  height: 100%;
+  top: 0; left: -150%;
+  width: 100%; height: 100%;
   background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
   animation: scanline 4s infinite linear;
   pointer-events: none;
@@ -1146,7 +1141,7 @@ footer {
   100% { left: 150%; }
 }
 
-/* Futuristic Carousel Buttons (Ensure your buttons use these classes) */
+/* Futuristic Carousel Buttons */
 .carousel-btn {
   background: rgba(2, 6, 14, 0.6);
   border: 1px solid rgba(0, 243, 255, 0.4);
@@ -1170,27 +1165,63 @@ footer {
   transform: scale(1.1);
 }
 
+/* Modal (Lightbox) Styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  padding-top: 50px; 
+  left: 0; top: 0;
+  width: 100%; height: 100%; 
+  background-color: rgba(4, 7, 13, 0.95); 
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
+}
+
+#modal-caption-text {
+  margin: 20px auto;
+  text-align: center;
+  color: #00f3ff;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  max-width: 80%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #00f3ff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-  .carousel-slide {
-    aspect-ratio: 4 / 3; 
-  }
-  
-  .carousel-slide img {
-    padding: 20px;
-  }
-  
-  .carousel-slide::before,
-  .carousel-slide::after {
-    width: 25px;
-    height: 25px;
-  }
-  
+  .image-wrapper { aspect-ratio: 4 / 3; }
+  .image-wrapper::before, .image-wrapper::after { width: 25px; height: 25px; }
   .carousel-caption {
-    bottom: 20px;
-    width: 90%;
+    width: 95%;
     padding: 10px 16px;
     font-size: 0.75rem;
-    letter-spacing: 1px;
   }
 }
