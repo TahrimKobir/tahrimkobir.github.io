@@ -1,5 +1,4 @@
 /* =========================================================
-   
    Your original design, restored. Motion layer rebuilt.
    Drop-in replacement. Pairs with motion.js (optional).
    ========================================================= */
@@ -361,12 +360,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 }
 .institution-badge:hover { border-color: var(--primary-green); color: var(--primary-green); }
 
-/* Headline rises line by line out of its own mask.
-   Markup:
-   <h1>
-     <span class="line"><span>Laila Arafat</span></span>
-     <span class="line"><span><em>Sathi</em></span></span>
-   </h1>  */
 .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 12px; }
 .hero-text h1 .line {
   display: block;
@@ -386,8 +379,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 .hero-text h1 em { font-style: italic; color: var(--primary-green); }
 
-/* Green rule before the subtitle, drawn in.
-   If your HTML already has a literal dash there, remove it. */
 .subtitle {
   display: flex;
   align-items: center;
@@ -451,10 +442,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 .hero-image { display: flex; justify-content: flex-end; }
 
-/* Wrap your <img class="profile-img"> in <div class="profile-frame">
-   to get the hover zoom and the one-off light pass. If you don't
-   use the wrapper (as in the current HTML), .profile-img still
-   gets its entrance animation and transition on its own. */
 .profile-frame {
   position: relative;
   width: 100%;
@@ -478,7 +465,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 .profile-frame:hover .profile-img,
 .profile-img:hover { transform: scale(1.04); }
 
-/* One pass of light across the portrait, once, after it lands. */
 .profile-frame::after {
   content: '';
   position: absolute;
@@ -490,7 +476,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   pointer-events: none;
 }
 
-/* Thin scroll cue with a dot travelling down it. */
 .scroll-cue {
   position: relative;
   width: 1px;
@@ -508,7 +493,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   animation: cueTravel 2.4s var(--ease) infinite;
 }
 
-/* Hero parallax, driven by scroll position with no JS at all. */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
     .hero-image {
@@ -580,7 +564,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 .card:hover h3 { color: var(--primary-green); }
 .card p { font-size: 0.95rem; }
 
-/* Highlight / publication */
 .highlight-card { margin-bottom: 40px; }
 
 .status-tag {
@@ -636,10 +619,13 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 .cert-list { display: flex; flex-direction: column; gap: 16px; }
 
+/* Side-by-side flexbox layout for cert card links */
 .cert-list a {
   position: relative;
   overflow: hidden;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   padding: 18px 20px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -662,6 +648,21 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 }
 .cert-list a:hover::after { animation: sheen 800ms var(--ease) both; }
 
+/* Enlarged logo sizing with ratio preservation */
+.cert-list .edu-icon-small {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Stacks text elements vertically next to the icon */
+.cert-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .cert-name {
   display: block;
   font-weight: 600;
@@ -671,15 +672,10 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   transition: color var(--t-fast) var(--ease);
 }
 .cert-list a:hover .cert-name { color: var(--primary-green); }
-.cert-org { display: block; color: #333833; font-size: 0.88rem; font-weight: 500; margin-top: 6px; }
+.cert-org { display: block; color: #333833; font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
 
 /* =========================================================
    7. TIMELINE / EDUCATION & EXPERIENCE
-   Single, non-conflicting definition (previously duplicated
-   with clashing padding/border-radius values). Card keeps the
-   left accent stripe that draws itself in on scroll, plus the
-   header layout used by the current markup (logo, title,
-   date badge, description).
    ========================================================= */
 .timeline-container {
   display: flex;
@@ -724,8 +720,6 @@ html:not(.js) .timeline-card::before { transform: scaleY(1); }
   flex-wrap: wrap;
 }
 
-/* Institution logo used inside the timeline header (matches the
-   img.edu-icon-small element actually used in the HTML). */
 .edu-icon-small {
   width: 42px;
   height: 42px;
@@ -765,10 +759,6 @@ html:not(.js) .timeline-card::before { transform: scaleY(1); }
 /* =========================================================
    8. SKILLS
    ========================================================= */
-
-/* Grid wrapper for the skill-group cards (previously undefined,
-   so the two skill cards stacked full-width instead of sitting
-   side by side like the rest of the site's card grids). */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -857,9 +847,6 @@ html:not(.js) .timeline-card::before { transform: scaleY(1); }
   border-top: 1px solid var(--border);
 }
 
-/* Was cut off mid-declaration in the source file (never closed,
-   which breaks parsing of the stylesheet from this point on).
-   Restored as a small variant of .view-link for the badge link. */
 .badge-link {
   color: var(--primary-green);
   font-weight: 500;
@@ -928,7 +915,6 @@ footer {
 }
 .footer-links a:hover { color: var(--primary-green); transform: translateY(-5px); }
 
-/* Floating back-to-top, appears once you've scrolled. */
 .back-to-top {
   position: fixed;
   right: 28px; bottom: 28px;
@@ -996,20 +982,13 @@ footer {
    13. REDUCED MOTION — everything stops, nothing hides
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .intro { display: none; }
-  .scroll-cue::after { animation: none; }
-  *, *::before, *::after {
-    animation-duration: 1ms !important;
-    animation-delay: 0ms !important;
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 1ms !important;
-    transition-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  .js [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .w > span { transform: none !important; }
-  .timeline-card::before,
-  .eyebrow::after,
-  .stats-row::before,
-  .subtitle::before { transform: none !important; }
+  .intro { display: none; }
+  .js [data-reveal] { opacity: 1; transform: none; }
+  .w > span { transform: none; }
 }
