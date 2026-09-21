@@ -10,6 +10,62 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      color: #333;
+      border: none;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .carousel-btn:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .prev-btn { left: 15px; }
+    .next-btn { right: 15px; }
+
+    @media (max-width: 768px) {
+      .carousel-slide img { height: 350px; }
+      .carousel-btn { width: 36px; height: 36px; font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -24,6 +80,7 @@
         <li><a href="#research">RESEARCH</a></li>
         <li><a href="#conferences">CONFERENCES</a></li>
         <li><a href="#education">EDUCATION</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
         <li><a href="#skills">SKILLS</a></li>
         <li><a href="#affiliations">AFFILIATIONS</a></li>
         <li><a href="#contact">CONTACT</a></li>
@@ -252,8 +309,30 @@
     </div>
   </section>
 
+  <!-- Photo Gallery / Carousel -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">In Action</span>
+        <h2>Field &amp; Laboratory Work</h2>
+      </div>
+      <div class="carousel-container">
+        <button class="carousel-btn prev-btn" aria-label="Previous image">&#10094;</button>
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="rice project data collection .jpg" alt="Rice project data collection" loading="lazy"></div>
+          <div class="carousel-slide"><img src="adding buffer solution.jpg" alt="Adding buffer solution" loading="lazy"></div>
+          <div class="carousel-slide"><img src="centrifuging sample.jpg" alt="Centrifuging sample" loading="lazy"></div>
+          <div class="carousel-slide"><img src="chili physiological data.jpg" alt="Chili physiological data" loading="lazy"></div>
+          <div class="carousel-slide"><img src="gringing the sample.jpg" alt="Grinding the sample" loading="lazy"></div>
+          <div class="carousel-slide"><img src="measuring chlorophile content on chili leaf.jpg" alt="Measuring chlorophyll content" loading="lazy"></div>
+        </div>
+        <button class="carousel-btn next-btn" aria-label="Next image">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
   <!-- Skills -->
-  <section id="skills" class="section section-alt">
+  <section id="skills" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Expertise</span>
@@ -284,7 +363,7 @@
   </section>
 
   <!-- Professional Affiliations -->
-  <section id="affiliations" class="section">
+  <section id="affiliations" class="section section-alt">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Network</span>
@@ -329,7 +408,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section section-alt">
+  <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Get in touch</span>
@@ -385,15 +464,16 @@
       <p>© 2026 <strong>Md Tahrim Kobir Riyad</strong> · tahrim.ag@student.sau.ac.bd</p>
       <div class="footer-links">
         <a href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener">
-        <img src="linkedin.png" alt="Linkedin Logo" style="width: 28px; height: 28px; object-fit: contain;">
+        <img src="linkedin.png" alt="Linkedin Logo" style="width: 28px; height: 28px; object-fit: contain;"></a>
         <a href="mailto:tahrim.ag@student.sau.ac.bd" target="_blank" rel="noopener">
-        <img src="gmail.png" alt="Gmail Logo" style="width: 28px; height: 28px; object-fit: contain;">
+        <img src="gmail.png" alt="Gmail Logo" style="width: 28px; height: 28px; object-fit: contain;"></a>
         <a href="#hero" aria-label="Back to top" class="back-to-top">↑</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Navigation toggle logic
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => {
@@ -411,6 +491,29 @@
         navLinks.classList.remove('open');
         navToggle.setAttribute('aria-expanded', 'false');
       }
+    });
+
+    // Image Carousel Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextButton = document.querySelector('.next-btn');
+      const prevButton = document.querySelector('.prev-btn');
+      let currentIndex = 0;
+
+      function updateCarousel(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel(currentIndex);
+      });
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel(currentIndex);
+      });
     });
   </script>
 </body>
