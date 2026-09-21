@@ -311,51 +311,61 @@
 
 
  <!-- Photo Gallery / Carousel -->
-  <section id="gallery" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">In Action</span>
-        <h2>Field &amp; Laboratory Work</h2>
-      </div>
-      <div class="carousel-container">
-        <button class="carousel-btn prev-btn" aria-label="Previous image">&#10094;</button>
-        <div class="carousel-track">
-          
-          <div class="carousel-slide">
-            <img src="rice.png" alt="Rice project data collection" loading="lazy">
-            <div class="carousel-caption">Collecting agronomic data for the rice research project</div>
-          </div>
-          
-          <div class="carousel-slide">
-            <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
-            <div class="carousel-caption">Preparing biochemical assays by adding buffer solution</div>
-          </div>
-
-                    <div class="carousel-slide">
-            <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
-            <div class="carousel-caption">Grinding plant tissue samples with liquid nitrogen for molecular analysis</div>
-          </div>
-          
-          <div class="carousel-slide">
-            <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
-            <div class="carousel-caption">Centrifuging plant samples for enzyme extraction</div>
-          </div>
-          
-          <div class="carousel-slide">
-            <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
-            <div class="carousel-caption">Recording physiological growth data from chili plants</div>
-          </div>
-          
-          <div class="carousel-slide">
-            <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
-            <div class="carousel-caption">Measuring non-destructive chlorophyll content on chili leaves</div>
-          </div>
-
-        </div>
-        <button class="carousel-btn next-btn" aria-label="Next image">&#10095;</button>
-      </div>
+<!-- Photo Gallery / Carousel -->
+<section id="gallery" class="section section-alt">
+  <div class="container">
+    
+    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <!-- Styled to look like a system readout -->
+      <span class="eyebrow" style="color: #00f3ff; font-family: monospace; letter-spacing: 2px;">[ SYS.STATUS: IN ACTION ]</span>
+      <h2 style="text-transform: uppercase; letter-spacing: 1px;">Field &amp; Laboratory Work</h2>
     </div>
-  </section>
+
+    <div class="carousel-container" style="position: relative;">
+      
+      <!-- Prev Button -->
+      <button class="carousel-btn prev-btn" aria-label="Previous image" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 20;">&#10094;</button>
+      
+      <div class="carousel-track">
+        
+        <div class="carousel-slide">
+          <img src="rice.png" alt="Rice project data collection" loading="lazy">
+          <div class="carousel-caption">Collecting agronomic data for the rice research project</div>
+        </div>
+        
+        <div class="carousel-slide">
+          <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
+          <div class="carousel-caption">Preparing biochemical assays by adding buffer solution</div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
+          <div class="carousel-caption">Grinding plant tissue samples with liquid nitrogen for molecular analysis</div>
+        </div>
+        
+        <div class="carousel-slide">
+          <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
+          <div class="carousel-caption">Centrifuging plant samples for enzyme extraction</div>
+        </div>
+        
+        <div class="carousel-slide">
+          <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
+          <div class="carousel-caption">Recording physiological growth data from chili plants</div>
+        </div>
+        
+        <div class="carousel-slide">
+          <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
+          <div class="carousel-caption">Measuring non-destructive chlorophyll content on chili leaves</div>
+        </div>
+
+      </div>
+
+      <!-- Next Button -->
+      <button class="carousel-btn next-btn" aria-label="Next image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 20;">&#10095;</button>
+      
+    </div>
+  </div>
+</section>
   
       
       <!-- Skills -->
