@@ -1,6 +1,20 @@
 /* =========================================================
-   Your original design, restored. Motion layer rebuilt.
-   Drop-in replacement. Pairs with motion.js (optional).
+   MAIN STYLESHEET
+   Table of Contents:
+   1. LOAD SEQUENCE
+   2. SCROLL REVEAL ENGINE
+   3. NAVBAR
+   4. HERO
+   5. CARDS
+   6. CERTIFICATIONS
+   7. TIMELINE / EDUCATION & EXPERIENCE
+   8. SKILLS
+   9. PROFESSIONAL AFFILIATIONS
+   10. CONTACT
+   11. FOOTER
+   12. RESPONSIVE
+   13. REDUCED MOTION
+   14. GALLERY / CAROUSEL (New Section)
    ========================================================= */
 
 /* ---------- Reset & base ---------- */
@@ -28,7 +42,7 @@ img { max-width: 100%; display: block; }
 
 :focus-visible { outline: 2px solid var(--primary-green); outline-offset: 4px; border-radius: 6px; }
 
-/* ---------- Palette (unchanged) ---------- */
+/* ---------- Palette ---------- */
 :root {
   color-scheme: light;
   --primary-green: #2B6D4A;
@@ -41,9 +55,7 @@ img { max-width: 100%; display: block; }
   --border: #E8EBE9;
 }
 
-/* ---------- Motion vocabulary ----------
-   One easing family everywhere, so the whole page moves as if
-   choreographed by one hand. */
+/* ---------- Motion vocabulary ---------- */
 :root {
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-long: cubic-bezier(0.16, 1, 0.30, 1);
@@ -56,10 +68,8 @@ img { max-width: 100%; display: block; }
 
 /* =========================================================
    1. LOAD SEQUENCE
+   Controls the green curtain wipe and monogram animation
    ========================================================= */
-
-/* Green curtain carrying your monogram, wipes upward off the page.
-   Delete the .intro element from your HTML to remove it. */
 .intro {
   position: fixed;
   inset: 0;
@@ -104,8 +114,7 @@ img { max-width: 100%; display: block; }
 
 /* =========================================================
    2. SCROLL REVEAL ENGINE
-   motion.js adds .is-visible. Without JS everything is simply
-   visible — nothing is ever left stranded invisible.
+   Handles elements fading in as they scroll into view
    ========================================================= */
 .js [data-reveal] {
   opacity: 0;
@@ -115,9 +124,6 @@ img { max-width: 100%; display: block; }
 }
 .js [data-reveal].is-visible { opacity: 1; transform: none; }
 
-/* Stagger indices for real groups — no markup changes needed.
-   NOTE: .timeline-container added alongside the legacy .timeline-grid
-   so the current Education & Experience markup gets staggered too. */
 :is(.cards-grid, .cert-list, .tags, .timeline-grid, .timeline-container, .contact-grid, .cert-groups, .skills-grid, .stagger) > *:nth-child(1) { --i: 0; }
 :is(.cards-grid, .cert-list, .tags, .timeline-grid, .timeline-container, .contact-grid, .cert-groups, .skills-grid, .stagger) > *:nth-child(2) { --i: 1; }
 :is(.cards-grid, .cert-list, .tags, .timeline-grid, .timeline-container, .contact-grid, .cert-groups, .skills-grid, .stagger) > *:nth-child(3) { --i: 2; }
@@ -127,8 +133,6 @@ img { max-width: 100%; display: block; }
 :is(.cards-grid, .cert-list, .tags, .timeline-grid, .timeline-container, .contact-grid, .cert-groups, .skills-grid, .stagger) > *:nth-child(7) { --i: 6; }
 :is(.cards-grid, .cert-list, .tags, .timeline-grid, .timeline-container, .contact-grid, .cert-groups, .skills-grid, .stagger) > *:nth-child(n+8) { --i: 7; }
 
-/* Word-by-word heading reveal. motion.js splits any heading
-   marked data-split into masked words. */
 .w {
   display: inline-block;
   overflow: hidden;
@@ -145,7 +149,6 @@ img { max-width: 100%; display: block; }
 [data-reveal].is-visible .w > span,
 [data-split].is-visible .w > span { transform: none; }
 
-/* Paper grain — static, 4%. Gives the cream some tooth. */
 body::after {
   content: '';
   position: fixed;
@@ -157,11 +160,9 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ---------- Layout helpers ---------- */
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 100px 0; }
 .section-alt { background: var(--bg-color); }
-
 .section-header { text-align: center; margin-bottom: 56px; }
 
 .eyebrow {
@@ -190,16 +191,11 @@ body::after {
 html:not(.js) .eyebrow::after { transform: scaleX(1); }
 
 .section-header h2 { font-size: 2.2rem; }
-
-.section-subtext {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin: 8px auto 0;
-  max-width: 62ch;
-}
+.section-subtext { font-size: 0.95rem; color: var(--text-muted); margin: 8px auto 0; max-width: 62ch; }
 
 /* =========================================================
-   3. NAVBAR — gliding pill + reading progress
+   3. NAVBAR
+   Sticky header, navigation links, and animated active pill
    ========================================================= */
 .navbar {
   position: sticky;
@@ -216,8 +212,6 @@ html:not(.js) .eyebrow::after { transform: scaleX(1); }
   padding: 0;
   box-shadow: 0 1px 0 var(--border), 0 14px 30px -26px rgba(0, 0, 0, 0.45);
 }
-
-/* Reading progress, drawn by the scroll position itself. */
 .navbar::after {
   content: '';
   position: absolute;
@@ -255,7 +249,6 @@ html:not(.js) .eyebrow::after { transform: scaleX(1); }
 .nav-brand em { font-style: italic; color: var(--primary-green); }
 
 .nav-links { display: flex; align-items: center; gap: 6px; position: relative; }
-
 .nav-links a {
   position: relative;
   z-index: 1;
@@ -273,8 +266,6 @@ html:not(.js) .eyebrow::after { transform: scaleX(1); }
 .nav-links a:focus-visible,
 .nav-links a[aria-current="page"] { color: var(--primary-green); }
 
-/* The showpiece: one pill that glides between links, follows the
-   pointer, and settles on whichever section you're reading. */
 .nav-indicator {
   position: absolute;
   top: 50%;
@@ -293,7 +284,6 @@ html:not(.js) .eyebrow::after { transform: scaleX(1); }
 }
 .nav-indicator.is-on { opacity: 1; }
 
-/* No-JS fallback: the current link keeps a static pill. */
 html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-green-light); }
 
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
@@ -306,7 +296,8 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* =========================================================
-   4. HERO — the orchestrated moment
+   4. HERO
+   Main introductory area, profile photo, and stats
    ========================================================= */
 .hero-section {
   position: relative;
@@ -314,8 +305,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   padding: 60px 0 80px;
   overflow: hidden;
 }
-/* Two very slow green glows drifting behind the hero, at 7–9%
-   opacity. You feel the depth without seeing the trick. */
 .hero-section::before,
 .hero-section::after {
   content: '';
@@ -376,7 +365,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 .hero-text h1 .line:nth-child(2) > span { --line: 1; }
 .hero-text h1 .line:nth-child(3) > span { --line: 2; }
 .hero-text h1:not(:has(.line)) { animation: riseIn var(--t-slow) var(--ease) 1250ms both; }
-
 .hero-text h1 em { font-style: italic; color: var(--primary-green); }
 
 .subtitle {
@@ -512,7 +500,8 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 }
 
 /* =========================================================
-   5. CARDS — pointer light + tilt
+   5. CARDS
+   Hover tilt effects and dynamic pointer highlights
    ========================================================= */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 
@@ -603,9 +592,8 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 .view-link:hover::after, .view-link:focus-visible::after { transform: scaleX(1); }
 
 /* =========================================================
-   6. CERTIFICATION
-/* =========================================================
    6. CERTIFICATIONS
+   Grid layout styling for logo and text pairs
    ========================================================= */
 .cert-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
 
@@ -621,12 +609,11 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 .cert-list { display: flex; flex-direction: column; gap: 16px; }
 
-/* CSS Grid layout creates a strict 2-column layout for logo + text */
 .cert-list a {
   position: relative;
   overflow: hidden;
   display: grid !important;
-  grid-template-columns: 56px 1fr !important; /* 56px logo column, rest for text */
+  grid-template-columns: 56px 1fr !important;
   align-items: center;
   column-gap: 16px;
   row-gap: 2px;
@@ -654,7 +641,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 }
 .cert-list a:hover::after { animation: sheen 800ms var(--ease) both; }
 
-/* Forces logo image to left column (spans both text rows) and increases size */
 .cert-list a img,
 .cert-list .edu-icon-small {
   grid-column: 1 !important;
@@ -668,7 +654,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   flex-shrink: 0;
 }
 
-/* Places title and university name into the right column */
 .cert-title-group {
   grid-column: 2 !important;
   grid-row: 1 / span 2 !important;
@@ -701,6 +686,7 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 /* =========================================================
    7. TIMELINE / EDUCATION & EXPERIENCE
+   Left-bordered timeline items with hover states
    ========================================================= */
 .timeline-container {
   display: flex;
@@ -783,6 +769,7 @@ html:not(.js) .timeline-card::before { transform: scaleY(1); }
 
 /* =========================================================
    8. SKILLS
+   Tag pills formatting and grouping
    ========================================================= */
 .skills-grid {
   display: grid;
@@ -880,6 +867,7 @@ html:not(.js) .timeline-card::before { transform: scaleY(1); }
 
 /* =========================================================
    10. CONTACT
+   Actionable contact rows with animated icons
    ========================================================= */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
 
@@ -923,6 +911,7 @@ html:not(.js) .timeline-card::before { transform: scaleY(1); }
 
 /* =========================================================
    11. FOOTER
+   Bottom signature, links, and back-to-top button
    ========================================================= */
 footer {
   background: var(--surface);
@@ -962,6 +951,7 @@ footer {
 
 /* =========================================================
    12. RESPONSIVE
+   Mobile layouts and collapsible navigation menus
    ========================================================= */
 @media (max-width: 768px) {
   .section { padding: 76px 0; }
@@ -1004,7 +994,8 @@ footer {
 }
 
 /* =========================================================
-   13. REDUCED MOTION — everything stops, nothing hides
+   13. REDUCED MOTION
+   Stops all movement when accessibility features demand it
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -1016,4 +1007,34 @@ footer {
   .intro { display: none; }
   .js [data-reveal] { opacity: 1; transform: none; }
   .w > span { transform: none; }
+}
+
+/* =========================================================
+   14. GALLERY / CAROUSEL
+   Styles for the photo gallery and image overlays
+   ========================================================= */
+.carousel-slide {
+  position: relative;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
 }
