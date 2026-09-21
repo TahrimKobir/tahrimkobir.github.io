@@ -603,6 +603,8 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 .view-link:hover::after, .view-link:focus-visible::after { transform: scaleX(1); }
 
 /* =========================================================
+   6. CERTIFICATION
+/* =========================================================
    6. CERTIFICATIONS
    ========================================================= */
 .cert-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
@@ -619,19 +621,22 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 .cert-list { display: flex; flex-direction: column; gap: 16px; }
 
-/* Side-by-side flexbox layout for cert card links */
+/* CSS Grid layout creates a strict 2-column layout for logo + text */
 .cert-list a {
   position: relative;
   overflow: hidden;
-  display: flex;
+  display: grid !important;
+  grid-template-columns: 56px 1fr !important; /* 56px logo column, rest for text */
   align-items: center;
-  gap: 16px;
+  column-gap: 16px;
+  row-gap: 2px;
   padding: 18px 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   transition: transform 400ms var(--ease), border-color 400ms var(--ease), box-shadow 400ms var(--ease);
 }
+
 .cert-list a::after {
   content: '';
   position: absolute;
@@ -641,6 +646,7 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   transform: translateX(-140%) skewX(-18deg);
   pointer-events: none;
 }
+
 .cert-list a:hover, .cert-list a:focus-visible {
   transform: translate3d(6px, 0, 0);
   border-color: var(--primary-green);
@@ -648,22 +654,31 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 }
 .cert-list a:hover::after { animation: sheen 800ms var(--ease) both; }
 
-/* Enlarged logo sizing with ratio preservation */
+/* Forces logo image to left column (spans both text rows) and increases size */
+.cert-list a img,
 .cert-list .edu-icon-small {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  object-fit: contain;
+  grid-column: 1 !important;
+  grid-row: 1 / span 2 !important;
+  width: 52px !important;
+  height: 52px !important;
+  max-width: 52px !important;
+  max-height: 52px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
   flex-shrink: 0;
 }
 
-/* Stacks text elements vertically next to the icon */
+/* Places title and university name into the right column */
 .cert-title-group {
+  grid-column: 2 !important;
+  grid-row: 1 / span 2 !important;
   display: flex;
   flex-direction: column;
 }
 
 .cert-name {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
   display: block;
   font-weight: 600;
   color: var(--text-heading);
@@ -671,8 +686,18 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   line-height: 1.35;
   transition: color var(--t-fast) var(--ease);
 }
+
 .cert-list a:hover .cert-name { color: var(--primary-green); }
-.cert-org { display: block; color: #333833; font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
+
+.cert-org {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  display: block;
+  color: #333833;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-top: 2px;
+}
 
 /* =========================================================
    7. TIMELINE / EDUCATION & EXPERIENCE
